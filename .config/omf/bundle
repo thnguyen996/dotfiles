@@ -1,0 +1,5 @@
+package autojump
+theme agnoster
+theme default
+theme gitstatus
+theme godfather
