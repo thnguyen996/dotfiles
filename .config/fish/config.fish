@@ -1,5 +1,5 @@
 if status --is-interactive
-    set -U fish_user_paths "$HOME/anaconda3/bin" $fish_user_paths
+    # set -U fish_user_paths "$HOME/anaconda3/bin" $fish_user_paths
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
     eval /home/th.nguyen/anaconda3/bin/conda "shell.fish" "hook" $argv | source
