@@ -8,8 +8,12 @@ if status --is-interactive
 # Aliases:
     alias vi="nvim"
     alias openf="xdg-open"
-    alias ide="./tmux_ide.sh"
+    alias ide="~/tmux_ide.sh"
     alias config="git --git-dir=$HOME/dotfiles --work-tree=$HOME"
+    alias gr="git remote add origin"
+    alias ga="git add"
+    alias gm="git commit -m"
+    alias gp="git push origin master"
     fish_vi_key_bindings
 
     set PATH "$HOME/.npm-global/bin:$PATH"

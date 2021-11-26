@@ -1,5 +1,8 @@
 package autojump
+package colorman
 theme agnoster
+theme batman
 theme default
 theme gitstatus
 theme godfather
+theme random
