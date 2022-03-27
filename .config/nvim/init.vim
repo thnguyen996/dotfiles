@@ -58,11 +58,6 @@ Plug 'vim-scripts/delimitMate.vim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 
-Plug 'neovim/nvim-lspconfig'
-Plug 'hrsh7th/cmp-nvim-lsp'
-Plug 'hrsh7th/cmp-buffer'
-Plug 'hrsh7th/cmp-path'
-Plug 'hrsh7th/nvim-cmp'
 Plug 'maralla/completor.vim'
 Plug 'dag/vim-fish'
 call plug#end()
@@ -73,9 +68,6 @@ colorscheme gruvbox
 set background=dark
 
 " nvim-autocomplete
-" set completeopt=noinsert,noselect
-" lua vim.lsp.handlers["textDocument/publishDiagnostics"] = function() end
-" lua require("cmp/cmp")
 compiler fish
 
 " Mapping
