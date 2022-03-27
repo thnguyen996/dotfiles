@@ -1,5 +1,5 @@
 syntax on
-filetype plugin on
+filetype plugin indent on
 
 set noerrorbells
 set autoread
@@ -20,6 +20,7 @@ set path+=**
 set nohlsearch
 set clipboard=unnamedplus
 set rtp+='/home/th.nguyen/torchvr/lib/python3.5/site-packages/powerline/bindings/vim'
+
 " Autosave
 let g:auto_save = 1
 command! Maketags !ctags -R .
@@ -63,17 +64,19 @@ Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'maralla/completor.vim'
+Plug 'dag/vim-fish'
 call plug#end()
 
-" colorscheme sublimemonokai
 let g:gruvbox_contrast_dark = 'hard'
 set t_Co=256
 colorscheme gruvbox
 set background=dark
 
 " nvim-autocomplete
-lua vim.lsp.handlers["textDocument/publishDiagnostics"] = function() end
-lua require("cmp/cmp")
+" set completeopt=noinsert,noselect
+" lua vim.lsp.handlers["textDocument/publishDiagnostics"] = function() end
+" lua require("cmp/cmp")
+compiler fish
 
 " Mapping
 let mapleader = " "
