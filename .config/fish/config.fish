@@ -7,7 +7,7 @@ if status --is-interactive
 
 # Aliases:
     alias vi="nvim"
-    alias openf="xdg-open"
+    alias openf="~/openf.sh"
     alias ide="~/tmux_ide.sh"
     alias config="git --git-dir=$HOME/dotfiles --work-tree=$HOME"
     alias gr="git remote add origin"
@@ -17,6 +17,7 @@ if status --is-interactive
     fish_vi_key_bindings
 
     set PATH "$HOME/.npm-global/bin:$PATH"
+    set PATH $HOME/.local/bin $PATH
     set -x SHELL /bin/bash
     bind -M insert \cf accept-autosuggestion
 
