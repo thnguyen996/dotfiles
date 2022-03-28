@@ -56,7 +56,6 @@ Plug 'kabouzeid/nvim-lspinstall'
 Plug 'tpope/vim-commentary'
 Plug 'vim-scripts/delimitMate.vim'
 Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
 
 Plug 'maralla/completor.vim'
 Plug 'dag/vim-fish'
@@ -101,6 +100,3 @@ autocmd FileType notes setlocal commentstring=#\ %s
 
 "pdb debug
 nnoremap <Leader>d oimport pdb; pdb.set_trace()<ESC>
-
-" telescope
-noremap <C-p> :lua require'telescope.builtin'.find_files()<cr>
