@@ -2,7 +2,7 @@ if status --is-interactive
     # set -U fish_user_paths "$HOME/anaconda3/bin" $fish_user_paths
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-    eval /home/th.nguyen/anaconda3/bin/conda "shell.fish" "hook" $argv | source
+    eval $HOME/anaconda3/bin/conda "shell.fish" "hook" $argv | source
 # <<< conda initialize <<<
 
 # Aliases:
@@ -20,14 +20,23 @@ if status --is-interactive
     set -x SHELL /bin/bash
     bind -M insert \cf accept-autosuggestion
 
-    set --local AUTOJUMP_PATH /home/th.nguyen/.linuxbrew/share/autojump/autojump.fish
+    if test -d $HOME/.linuxbrew
+        set --local AUTOJUMP_PATH $HOME/.linuxbrew/share/autojump/autojump.fish
+        source "$HOME/.linuxbrew/opt/fzf/shell/key-bindings.fish"
+    else
+        set --local AUTOJUMP_PATH /usr/share/autojump/autojump.fish
+    end
+
     if test -e $AUTOJUMP_PATH
         source $AUTOJUMP_PATH
     end
 
-# Key bindings
-# ------------
-    source "/home/th.nguyen/.linuxbrew/opt/fzf/shell/key-bindings.fish"
+    set -x DISPLAY (awk '/nameserver / {print $2; exit}' /etc/resolv.conf 2>/dev/null):0
+    set LIBGL_ALWAYS_INDIRECT 1
 
 # Commands to run in interactive sessions can go here
+end
+
+function fish_user_key_bindings
+	fzf_key_bindings
 end
