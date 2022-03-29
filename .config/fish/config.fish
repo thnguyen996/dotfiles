@@ -14,6 +14,11 @@ if status --is-interactive
     alias ga="git add"
     alias gm="git commit -m"
     alias gp="git push origin master"
+    if test -d /mnt/g/My\ Drive/
+        alias drive="cd /mnt/g/My\ Drive/"
+    else
+        alias drive="cd /mnt/e/My\ Drive/"
+    end
     fish_vi_key_bindings
 
     set PATH "$HOME/.npm-global/bin:$PATH"
@@ -25,7 +30,7 @@ if status --is-interactive
         set --local AUTOJUMP_PATH $HOME/.linuxbrew/share/autojump/autojump.fish
         source "$HOME/.linuxbrew/opt/fzf/shell/key-bindings.fish"
     else
-        set --local AUTOJUMP_PATH /usr/share/autojump/autojump.fish
+        set AUTOJUMP_PATH /usr/share/autojump/autojump.fish
     end
 
     if test -e $AUTOJUMP_PATH
@@ -35,7 +40,6 @@ if status --is-interactive
     set -x DISPLAY (awk '/nameserver / {print $2; exit}' /etc/resolv.conf 2>/dev/null):0
     set LIBGL_ALWAYS_INDIRECT 1
 
-# Commands to run in interactive sessions can go here
 end
 
 function fish_user_key_bindings
