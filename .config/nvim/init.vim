@@ -1,6 +1,7 @@
 syntax on
 filetype plugin indent on
 
+set nocompatible
 set noerrorbells
 set autoread
 set tabstop=4 softtabstop=4
@@ -61,6 +62,7 @@ Plug 'dag/vim-fish'
 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'vimwiki/vimwiki'
 call plug#end()
 
 let g:gruvbox_contrast_dark = 'hard'
@@ -111,3 +113,7 @@ inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
 let g:completor_complete_options = 'menuone,noselect,preview'
+
+" vimwiki
+
+let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
