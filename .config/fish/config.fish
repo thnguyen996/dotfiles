@@ -16,10 +16,14 @@ if status --is-interactive
     alias ga="git add"
     alias gm="git commit -m"
     alias gp="git push origin master"
+    alias cit="papers list --no-key --field title | fzf | xargs -d '\n' papers list --fuzzy -t | xclip -selection clipboard && xclip -o -sel c"
+    alias cia="papers list --no-key --field author | fzf | xargs -d '\n' papers list --fuzzy -a | xclip -selection clipboard && xclip -o -sel c"
     if test -d /mnt/g/My\ Drive/
         alias drive="cd /mnt/g/My\ Drive/"
+        alias paper="cd /mnt/g/My\ Drive/papers"
     else
         alias drive="cd /mnt/e/My\ Drive/"
+        alias paper="cd /mnt/e/My\ Drive/papers"
     end
     fish_vi_key_bindings
 
