@@ -92,10 +92,9 @@ if !exists('g:airline_symbols')
 " Syntax highlting 
 let g:python_highlight_all = 1
 
-" Quick scope
-highlight QuickScopePrimary guifg='#afff5f' gui=underline ctermfg=155 cterm=underline
 " Vim commentary
 autocmd FileType notes setlocal commentstring=#\ %s
 
 "pdb debug
 nnoremap <Leader>d oimport pdb; pdb.set_trace()<ESC>
+
