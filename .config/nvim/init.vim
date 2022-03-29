@@ -111,4 +111,3 @@ inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
 let g:completor_complete_options = 'menuone,noselect,preview'
->>>>>>> fb6e3360a231b2a4e3481ccda772dd3ec4b69dca
