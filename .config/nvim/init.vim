@@ -99,3 +99,8 @@ autocmd FileType notes setlocal commentstring=#\ %s
 
 "pdb debug
 nnoremap <Leader>d oimport pdb; pdb.set_trace()<ESC>
+
+" completor vim
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
