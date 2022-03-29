@@ -27,8 +27,8 @@ if status --is-interactive
     bind -M insert \cf accept-autosuggestion
 
     if test -d $HOME/.linuxbrew
-        set --local AUTOJUMP_PATH $HOME/.linuxbrew/share/autojump/autojump.fish
-        source "$HOME/.linuxbrew/opt/fzf/shell/key-bindings.fish"
+        set AUTOJUMP_PATH $HOME/.linuxbrew/share/autojump/autojump.fish \
+        && source "$HOME/.linuxbrew/opt/fzf/shell/key-bindings.fish"
     else
         set AUTOJUMP_PATH /usr/share/autojump/autojump.fish
     end
@@ -37,8 +37,12 @@ if status --is-interactive
         source $AUTOJUMP_PATH
     end
 
-    set -x DISPLAY (awk '/nameserver / {print $2; exit}' /etc/resolv.conf 2>/dev/null):0
-    set LIBGL_ALWAYS_INDIRECT 1
+    if test -d $HOME/.linuxbrew
+        ;
+    else
+        set -x DISPLAY (awk '/nameserver / {print $2; exit}' /etc/resolv.conf 2>/dev/null):0
+        set LIBGL_ALWAYS_INDIRECT 1
+    end
 
 end
 

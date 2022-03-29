@@ -58,6 +58,9 @@ Plug 'nvim-lua/plenary.nvim'
 
 Plug 'maralla/completor.vim'
 Plug 'dag/vim-fish'
+
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 call plug#end()
 
 let g:gruvbox_contrast_dark = 'hard'
@@ -100,7 +103,13 @@ autocmd FileType notes setlocal commentstring=#\ %s
 "pdb debug
 nnoremap <Leader>d oimport pdb; pdb.set_trace()<ESC>
 
+" fzf
+" Path completion
+imap <c-x><c-f> <plug>(fzf-complete-path)  
+
+
 " completor vim
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
+let g:completor_complete_options = 'menuone,noselect,preview'
