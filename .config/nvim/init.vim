@@ -1,6 +1,7 @@
 syntax on
 filetype plugin indent on
 
+set nocompatible
 set noerrorbells
 set autoread
 set tabstop=4 softtabstop=4
@@ -58,6 +59,10 @@ Plug 'nvim-lua/plenary.nvim'
 
 Plug 'maralla/completor.vim'
 Plug 'dag/vim-fish'
+
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'vimwiki/vimwiki'
 call plug#end()
 
 let g:gruvbox_contrast_dark = 'hard'
@@ -92,10 +97,23 @@ if !exists('g:airline_symbols')
 " Syntax highlting 
 let g:python_highlight_all = 1
 
-" Quick scope
-highlight QuickScopePrimary guifg='#afff5f' gui=underline ctermfg=155 cterm=underline
 " Vim commentary
 autocmd FileType notes setlocal commentstring=#\ %s
 
 "pdb debug
 nnoremap <Leader>d oimport pdb; pdb.set_trace()<ESC>
+
+" fzf
+" Path completion
+imap <c-x><c-f> <plug>(fzf-complete-path)  
+
+
+" completor vim
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
+let g:completor_complete_options = 'menuone,noselect,preview'
+
+" vimwiki
+
+let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
