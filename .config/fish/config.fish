@@ -25,6 +25,7 @@ if status --is-interactive
         alias drive="cd /mnt/e/My\ Drive/"
         alias paper="cd /mnt/e/My\ Drive/papers"
     end
+
     fish_vi_key_bindings
 
     set PATH "$HOME/.npm-global/bin:$PATH"
