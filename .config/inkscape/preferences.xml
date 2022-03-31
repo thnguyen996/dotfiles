@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <inkscape
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   version="1"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   version="1">
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd">
   <group
      id="window">
     <group
@@ -105,11 +105,14 @@
     <sodipodi:namedview
        id="base"
        pagecolor="#ffffff"
+       pageopacity="0.0"
+       pagecheckerboard="0"
        bordercolor="#666666"
        borderopacity="1.0"
        objecttolerance="10.0"
        gridtolerance="10.0"
        guidetolerance="10.0"
+       pageshadow="2"
        inkscape:pageopacity="0.0"
        inkscape:pageshadow="2"
        inkscape:window-width="640"
@@ -204,7 +207,9 @@
        tracebackground="0"
        usepressure="1"
        usetilt="0"
-       keep_selected="1">
+       keep_selected="1"
+       abs_width="1"
+       unit="mm">
       <group
          id="preset">
         <group
@@ -551,7 +556,9 @@
        state="2"
        placement="1" />
     <group
-       id="xml" />
+       id="xml"
+       h="500"
+       w="300" />
     <group
        id="find" />
     <group
@@ -630,7 +637,9 @@
        id="treeeditor" />
     <group
        id="layers"
-       maxDepth="20" />
+       maxDepth="20"
+       w="200"
+       h="300" />
     <group
        id="extensioneditor" />
     <group
@@ -926,6 +935,9 @@
     <group
        id="font"
        unitType="2" />
+    <group
+       id="defaultwindowsize"
+       value="2" />
   </group>
   <group
      id="extensions"
@@ -936,13 +948,13 @@
      id="desktop"
      style="font-size:10.66666667px;fill:#2c7bb6;stroke:#000000;stroke-width:1.33333334;stop-color:#000000">
     <group
+<<<<<<< HEAD
        width="1920"
        height="1057"
        x="-325"
        y="30"
        fullscreen="0"
-       id="geometry"
-       maximized="0" />
+       id="geometry" />
     <group
        id="XYfront" />
     <group
@@ -1042,10 +1054,13 @@
   <group
      id="theme"
      defaultTheme="Ambiance"
-     defaultIconTheme="ubuntu-mono-dark"
+     defaultIconTheme="Yaru"
      gtkTheme="Ambiance"
      iconTheme="ubuntu-mono-dark"
      menuIcons_canvas="0"
      menuIcons_layers="0"
-     menuIcons_objects="0" />
+     menuIcons_objects="0"
+     defaultPreferDarkTheme="0"
+     defaultGtkTheme="Yaru"
+     darkTheme="0" />
 </inkscape>

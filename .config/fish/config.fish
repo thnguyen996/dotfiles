@@ -10,15 +10,22 @@ if status --is-interactive
     alias openf="~/openf.sh"
     alias ide="~/tmux_ide.sh"
     alias config="git --git-dir=$HOME/dotfiles --work-tree=$HOME"
+    alias gradient="ssh -Y -i ~/.ssh/labpc th.nguyen@gradientday.yonsei.ac.kr"
+    alias gradientf="~/port-forward.sh"
     alias gr="git remote add origin"
     alias ga="git add"
     alias gm="git commit -m"
     alias gp="git push origin master"
+    alias cit="papers list --no-key --field title author | fzf | xargs -d '\n' papers list --fuzzy -t | clip.exe && powershell.exe Get-Clipboard "
+    alias cia="papers list --no-key --field author | fzf | xargs -d '\n' papers list --fuzzy -a | clip.exe && powershell.exe Get-Clipboard" 
     if test -d /mnt/g/My\ Drive/
         alias drive="cd /mnt/g/My\ Drive/"
+        alias paper="cd /mnt/g/My\ Drive/papers"
     else
         alias drive="cd /mnt/e/My\ Drive/"
+        alias paper="cd /mnt/e/My\ Drive/papers"
     end
+
     fish_vi_key_bindings
 
     set PATH "$HOME/.npm-global/bin:$PATH"
@@ -43,7 +50,6 @@ if status --is-interactive
         set -x DISPLAY (awk '/nameserver / {print $2; exit}' /etc/resolv.conf 2>/dev/null):0
         set LIBGL_ALWAYS_INDIRECT 1
     end
-
 end
 
 function fish_user_key_bindings

@@ -1,6 +1,7 @@
 syntax on
 filetype plugin indent on
 
+set nocompatible
 set noerrorbells
 set autoread
 set tabstop=4 softtabstop=4
@@ -20,6 +21,8 @@ set path+=**
 set nohlsearch
 set clipboard=unnamedplus
 set rtp+='/home/th.nguyen/torchvr/lib/python3.5/site-packages/powerline/bindings/vim'
+setlocal spell
+set spelllang=en_gb
 
 " Autosave
 let g:auto_save = 1
@@ -61,6 +64,8 @@ Plug 'dag/vim-fish'
 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'vimwiki/vimwiki'
+Plug 'lervag/vimtex'
 call plug#end()
 
 let g:gruvbox_contrast_dark = 'hard'
@@ -95,8 +100,6 @@ if !exists('g:airline_symbols')
 " Syntax highlting 
 let g:python_highlight_all = 1
 
-" Quick scope
-highlight QuickScopePrimary guifg='#afff5f' gui=underline ctermfg=155 cterm=underline
 " Vim commentary
 autocmd FileType notes setlocal commentstring=#\ %s
 
@@ -113,3 +116,21 @@ inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
 let g:completor_complete_options = 'menuone,noselect,preview'
+" let g:completor_tex_omni_trigger = g:vimtex#re#deoplete
+let g:completor_tex_omni_trigger =
+        \   '\\(?:'
+        \  .   '\w*cite\w*(?:\s*\[[^]]*\]){0,2}\s*{[^}]*'
+        \  .  '|\w*ref(?:\s*\{[^}]*|range\s*\{[^,}]*(?:}{)?)'
+        \  .  '|hyperref\s*\[[^]]*'
+        \  .  '|includegraphics\*?(?:\s*\[[^]]*\]){0,2}\s*\{[^}]*'
+        \  .  '|(?:include(?:only)?|input)\s*\{[^}]*'
+        \  .')'
+
+" vimwiki
+
+let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
+
+" vimtex
+let g:vimtex_view_method = 'zathura'
+autocmd BufNewFile,BufRead *.tex set wrap
+
