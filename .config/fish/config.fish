@@ -25,6 +25,7 @@ if status --is-interactive
         alias drive="cd /mnt/e/My\ Drive/"
         alias paper="cd /mnt/e/My\ Drive/papers"
     end
+
     fish_vi_key_bindings
 
     set PATH "$HOME/.npm-global/bin:$PATH"
@@ -49,7 +50,6 @@ if status --is-interactive
         set -x DISPLAY (awk '/nameserver / {print $2; exit}' /etc/resolv.conf 2>/dev/null):0
         set LIBGL_ALWAYS_INDIRECT 1
     end
-
 end
 
 function fish_user_key_bindings
