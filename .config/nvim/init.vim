@@ -21,6 +21,8 @@ set path+=**
 set nohlsearch
 set clipboard=unnamedplus
 set rtp+='/home/th.nguyen/torchvr/lib/python3.5/site-packages/powerline/bindings/vim'
+set spell
+set spelllang=en_gb
 
 " Autosave
 let g:auto_save = 1
@@ -64,6 +66,9 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'vimwiki/vimwiki'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+Plug 'lervag/vimtex'
+Plug 'sirver/ultisnips'
+Plug 'rhysd/vim-grammarous'
 call plug#end()
 
 let g:gruvbox_contrast_dark = 'hard'
@@ -109,12 +114,34 @@ nnoremap <Leader>d oimport pdb; pdb.set_trace()<ESC>
 imap <c-x><c-f> <plug>(fzf-complete-path)  
 
 
+" vimwiki
+
+let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
+
+" vimtex
+let g:tex_flavor = 'latex'
+" let g:vimtex_view_method = 'zathura'
+let g:vimtex_view_general_viewer = 'okular'
+let g:vimtex_view_general_options = '--unique file:@pdf\#src:@line@tex'
+let g:latex_viewer = 'zathura'
+autocmd BufNewFile,BufRead *.tex set wrap linebreak nolist
+let g:UltiSnipsExpandTrigger = '<C-j>'
+let g:UltiSnipsJumpForwardTrigger = '<C-j>'
+let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
+let g:vimtex_quickfix_mode = 0
+let g:UltiSnipsSnippetDirectories=[$HOME.'/.config/snippets']
+set thesaurus+=$HOME/.config/thesaurus/thesaurii.txt
+
 " completor vim
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
 let g:completor_complete_options = 'menuone,noselect,preview'
-
-" vimwiki
-
-let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
+let g:completor_tex_omni_trigger =
+        \   '\\(?:'
+        \  .   '\w*cite\w*(?:\s*\[[^]]*\]){0,2}\s*{[^}]*'
+        \  .  '|\w*ref(?:\s*\{[^}]*|range\s*\{[^,}]*(?:}{)?)'
+        \  .  '|hyperref\s*\[[^]]*'
+        \  .  '|includegraphics\*?(?:\s*\[[^]]*\]){0,2}\s*\{[^}]*'
+        \  .  '|(?:include(?:only)?|input)\s*\{[^}]*'
+        \  .')'

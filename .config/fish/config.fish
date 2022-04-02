@@ -11,7 +11,7 @@ if status --is-interactive
     alias ide="~/tmux_ide.sh"
     alias config="git --git-dir=$HOME/dotfiles --work-tree=$HOME"
     alias gradient="ssh -Y -i ~/.ssh/labpc th.nguyen@gradientday.yonsei.ac.kr"
-    alias gradientf="~/port-forward.sh"
+    alias gradientf="bash ~/port-forward.sh"
     alias gr="git remote add origin"
     alias ga="git add"
     alias gm="git commit -m"
