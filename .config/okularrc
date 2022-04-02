@@ -2,13 +2,13 @@
 FullScreen=false
 
 [MainWindow]
+Height 1080=677
 Height 1934=1389
-State=AAAA/wAAAAD9AAAAAAAAB1cAAAVCAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAWAG0AYQBpAG4AVABvAG8AbABCAGEAcgEAAAAA/////wAAAAAAAAAA
+State=AAAA/wAAAAD9AAAAAAAABE0AAAJyAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAWAG0AYQBpAG4AVABvAG8AbABCAGEAcgEAAAAA/////wAAAAAAAAAA
 ToolBarsMovable=Disabled
+Width 1920=1101
 Width 4640=1879
 
 [Recent Files]
-File1[$e]=/mnt/g/My Drive/papers/notes/newnote.md
-File2[$e]=/mnt/g/My Drive/papers/notes/test_note.md
-Name1[$e]=newnote.md
-Name2[$e]=test_note.md
+File1[$e]=/mnt/e/My Drive/papers/notes/test_note.md
+Name1[$e]=test_note.md
