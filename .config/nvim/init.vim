@@ -23,6 +23,7 @@ set clipboard=unnamedplus
 set rtp+='/home/th.nguyen/torchvr/lib/python3.5/site-packages/powerline/bindings/vim'
 set spell
 set spelllang=en_gb
+set nofoldenable
 
 " Autosave
 let g:auto_save = 1
@@ -69,15 +70,17 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': 
 Plug 'lervag/vimtex'
 Plug 'sirver/ultisnips'
 Plug 'rhysd/vim-grammarous'
+Plug 'rickhowe/diffchar.vim'
 call plug#end()
 
-let g:gruvbox_contrast_dark = 'hard'
 set t_Co=256
-colorscheme gruvbox
+let g:gruvbox_contrast_dark = 'hard'
 set background=dark
+colorscheme gruvbox
 
 " nvim-autocomplete
 compiler fish
+
 
 " Mapping
 let mapleader = " "
@@ -88,6 +91,11 @@ nnoremap x "_x
 nnoremap X "_X
 nnoremap <Leader>g :call completor#do('definition')<CR>
 nnoremap <Leader>s :call completor#do('doc')<CR>
+
+" vimdiff
+au VimEnter *.tex if &diff | execute 'windo set wrap nofoldenable' | let g:qs_enable=0 | endif
+nnoremap <Leader>i :call diffchar#CopyDiffCharPair(0)<CR>
+
 
 " air-line
 let g:airline_powerline_fonts = 1
@@ -123,13 +131,15 @@ let g:tex_flavor = 'latex'
 " let g:vimtex_view_method = 'zathura'
 let g:vimtex_view_general_viewer = 'okular'
 let g:vimtex_view_general_options = '--unique file:@pdf\#src:@line@tex'
-autocmd BufNewFile,BufRead *.tex set wrap linebreak nolist
+let g:latex_viewer = 'zathura'
+autocmd BufNewFile,BufRead *.tex set wrap linebreak nolist nofoldenable
 let g:UltiSnipsExpandTrigger = '<C-j>'
 let g:UltiSnipsJumpForwardTrigger = '<C-j>'
 let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
 let g:vimtex_quickfix_mode = 0
 let g:UltiSnipsSnippetDirectories=[$HOME.'/.config/snippets']
 set thesaurus+=$HOME/.config/thesaurus/thesaurii.txt
+let g:qs_max_chars=10000
 
 " completor vim
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
@@ -144,3 +154,4 @@ let g:completor_tex_omni_trigger =
         \  .  '|includegraphics\*?(?:\s*\[[^]]*\]){0,2}\s*\{[^}]*'
         \  .  '|(?:include(?:only)?|input)\s*\{[^}]*'
         \  .')'
+
