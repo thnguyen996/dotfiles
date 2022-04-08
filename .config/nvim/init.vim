@@ -123,7 +123,6 @@ let g:tex_flavor = 'latex'
 " let g:vimtex_view_method = 'zathura'
 let g:vimtex_view_general_viewer = 'okular'
 let g:vimtex_view_general_options = '--unique file:@pdf\#src:@line@tex'
-let g:latex_viewer = 'zathura'
 autocmd BufNewFile,BufRead *.tex set wrap linebreak nolist
 let g:UltiSnipsExpandTrigger = '<C-j>'
 let g:UltiSnipsJumpForwardTrigger = '<C-j>'
