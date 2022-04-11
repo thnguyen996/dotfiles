@@ -12,6 +12,7 @@ if status --is-interactive
     alias config="git --git-dir=$HOME/dotfiles --work-tree=$HOME"
     alias gradient="ssh -Y -i ~/.ssh/labpc th.nguyen@gradientday.yonsei.ac.kr"
     alias gradientf="bash ~/port-forward.sh"
+    alias gradient_mount="sshfs -o IdentityFile=~/.ssh/home_key -o ssh_command='ssh -J thnguyen@goodday.yonsei.ac.kr:80' th.nguyen@gradientday.yonsei.ac.kr:/home/th.nguyen/ ~/gradient"
     alias gr="git remote add origin"
     alias ga="git add"
     alias gm="git commit -m"
@@ -44,7 +45,7 @@ if status --is-interactive
         source $AUTOJUMP_PATH
     end
 
-    if test -d /mnt/g/My\ Drive/
+    if test -d /mnt/c/Windows/
         set -x DISPLAY (awk '/nameserver / {print $2; exit}' /etc/resolv.conf 2>/dev/null):0
         set LIBGL_ALWAYS_INDIRECT 1
     end

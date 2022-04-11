@@ -73,6 +73,7 @@ Plug 'rhysd/vim-grammarous'
 Plug 'rickhowe/diffchar.vim'
 call plug#end()
 
+" Colorscheme
 set t_Co=256
 let g:gruvbox_contrast_dark = 'hard'
 set background=dark
@@ -80,7 +81,6 @@ colorscheme gruvbox
 
 " nvim-autocomplete
 compiler fish
-
 
 " Mapping
 let mapleader = " "
@@ -98,11 +98,15 @@ nnoremap <Leader>i :call diffchar#CopyDiffCharPair(0)<CR>
 
 
 " air-line
-let g:airline_powerline_fonts = 1
+" let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme='powerlineish'
+let g:airline_theme='minimalist'
 let g:tmuxline_theme = 'powerline'
 let g:airline#extensions#tmuxline#enabled = 1
+let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
+let g:airline_section_y=""
+let g:airline_section_z=""
+let g:airline#extensions#tabline#ignore_bufadd_pat=0
 
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
@@ -140,6 +144,20 @@ let g:vimtex_quickfix_mode = 0
 let g:UltiSnipsSnippetDirectories=[$HOME.'/.config/snippets']
 set thesaurus+=$HOME/.config/thesaurus/thesaurii.txt
 let g:qs_max_chars=10000
+
+augroup vimtex_customization
+autocmd!
+autocmd FileType tex call CreateTocs()
+augroup END
+
+function CreateTocs()
+let g:custom_toc1 = vimtex#toc#new({
+    \ 'layers' : ['todo', 'content'],
+    \ 'show_help' : 0,
+    \ 'mode' : 0,
+    \})
+nnoremap <silent> <C-n> :call g:custom_toc1.open()<cr>
+endfunction
 
 " completor vim
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
