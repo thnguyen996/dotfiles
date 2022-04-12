@@ -21,8 +21,9 @@ set path+=**
 set nohlsearch
 set clipboard=unnamedplus
 set rtp+='/home/th.nguyen/torchvr/lib/python3.5/site-packages/powerline/bindings/vim'
-setlocal spell
+set spell
 set spelllang=en_gb
+set nofoldenable
 
 " Autosave
 let g:auto_save = 1
@@ -65,13 +66,20 @@ Plug 'dag/vim-fish'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'vimwiki/vimwiki'
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'lervag/vimtex'
+Plug 'sirver/ultisnips'
+Plug 'rhysd/vim-grammarous'
+Plug 'rickhowe/diffchar.vim'
+Plug 'samoshkin/vim-mergetool'
+Plug 'tpope/vim-fugitive'
 call plug#end()
 
-let g:gruvbox_contrast_dark = 'hard'
+" Colorscheme
 set t_Co=256
-colorscheme gruvbox
+let g:gruvbox_contrast_dark = 'hard'
 set background=dark
+colorscheme gruvbox
 
 " nvim-autocomplete
 compiler fish
@@ -83,15 +91,24 @@ nnoremap H gT
 nnoremap L gt
 nnoremap x "_x
 nnoremap X "_X
-nnoremap <Leader>g :call completor#do('definition')<CR>
-nnoremap <Leader>s :call completor#do('doc')<CR>
+nnoremap <Leader>gg :call completor#do('definition')<CR>
+nnoremap <Leader>gs :call completor#do('doc')<CR>
+
+" vimdiff
+au VimEnter *.tex if &diff | execute 'windo set wrap nofoldenable' | let g:qs_enable=0 | endif
+nnoremap <Leader>i :call diffchar#CopyDiffCharPair(0)<CR>
+
 
 " air-line
-let g:airline_powerline_fonts = 1
+" let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme='powerlineish'
+let g:airline_theme='minimalist'
 let g:tmuxline_theme = 'powerline'
 let g:airline#extensions#tmuxline#enabled = 1
+let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
+let g:airline_section_y=""
+let g:airline_section_z=""
+let g:airline#extensions#tabline#ignore_bufadd_pat=0
 
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
@@ -111,12 +128,44 @@ nnoremap <Leader>d oimport pdb; pdb.set_trace()<ESC>
 imap <c-x><c-f> <plug>(fzf-complete-path)  
 
 
+" vimwiki
+
+let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
+
+" vimtex
+let g:tex_flavor = 'latex'
+" let g:vimtex_view_method = 'zathura'
+let g:vimtex_view_general_viewer = 'okular'
+let g:vimtex_view_general_options = '--unique file:@pdf\#src:@line@tex'
+let g:latex_viewer = 'zathura'
+autocmd BufNewFile,BufRead *.tex set wrap linebreak nolist nofoldenable
+let g:UltiSnipsExpandTrigger = '<C-j>'
+let g:UltiSnipsJumpForwardTrigger = '<C-j>'
+let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
+let g:vimtex_quickfix_mode = 0
+let g:UltiSnipsSnippetDirectories=[$HOME.'/.config/snippets']
+set thesaurus+=$HOME/.config/thesaurus/thesaurii.txt
+let g:qs_max_chars=10000
+
+augroup vimtex_customization
+autocmd!
+autocmd FileType tex call CreateTocs()
+augroup END
+
+function CreateTocs()
+let g:custom_toc1 = vimtex#toc#new({
+    \ 'layers' : ['todo', 'content'],
+    \ 'show_help' : 0,
+    \ 'mode' : 0,
+    \})
+nnoremap <silent> <C-n> :call g:custom_toc1.open()<cr>
+endfunction
+
 " completor vim
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
 let g:completor_complete_options = 'menuone,noselect,preview'
-" let g:completor_tex_omni_trigger = g:vimtex#re#deoplete
 let g:completor_tex_omni_trigger =
         \   '\\(?:'
         \  .   '\w*cite\w*(?:\s*\[[^]]*\]){0,2}\s*{[^}]*'
@@ -126,11 +175,17 @@ let g:completor_tex_omni_trigger =
         \  .  '|(?:include(?:only)?|input)\s*\{[^}]*'
         \  .')'
 
-" vimwiki
+" Merge tool
+let g:mergetool_layout = 'mr'
+let g:mergetool_prefer_revision = 'local'
+nmap <leader>mt <plug>(MergetoolToggle)
 
-let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
+function s:on_mergetool_set_layout(split)
+    set wrap
+    set nofoldenable
+endfunction
 
-" vimtex
-let g:vimtex_view_method = 'zathura'
-autocmd BufNewFile,BufRead *.tex set wrap
+let g:MergetoolSetLayoutCallback = function('s:on_mergetool_set_layout')
 
+" fugitive
+nnoremap <Leader>s :G<CR>
