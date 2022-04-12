@@ -71,6 +71,8 @@ Plug 'lervag/vimtex'
 Plug 'sirver/ultisnips'
 Plug 'rhysd/vim-grammarous'
 Plug 'rickhowe/diffchar.vim'
+Plug 'samoshkin/vim-mergetool'
+Plug 'tpope/vim-fugitive'
 call plug#end()
 
 " Colorscheme
@@ -89,8 +91,8 @@ nnoremap H gT
 nnoremap L gt
 nnoremap x "_x
 nnoremap X "_X
-nnoremap <Leader>g :call completor#do('definition')<CR>
-nnoremap <Leader>s :call completor#do('doc')<CR>
+nnoremap <Leader>gg :call completor#do('definition')<CR>
+nnoremap <Leader>gs :call completor#do('doc')<CR>
 
 " vimdiff
 au VimEnter *.tex if &diff | execute 'windo set wrap nofoldenable' | let g:qs_enable=0 | endif
@@ -173,3 +175,17 @@ let g:completor_tex_omni_trigger =
         \  .  '|(?:include(?:only)?|input)\s*\{[^}]*'
         \  .')'
 
+" Merge tool
+let g:mergetool_layout = 'mr'
+let g:mergetool_prefer_revision = 'local'
+nmap <leader>mt <plug>(MergetoolToggle)
+
+function s:on_mergetool_set_layout(split)
+    set wrap
+    set nofoldenable
+endfunction
+
+let g:MergetoolSetLayoutCallback = function('s:on_mergetool_set_layout')
+
+" fugitive
+nnoremap <Leader>s :G<CR>
