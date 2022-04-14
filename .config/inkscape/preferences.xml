@@ -129,7 +129,9 @@
       <eventcontext
          id="rect"
          style="fill:blue;"
-         usecurrent="1" />
+         usecurrent="1"
+         width="49.2857"
+         height="45.1786" />
       <eventcontext
          id="3dbox"
          style="stroke:none;stroke-linejoin:round;"
@@ -323,7 +325,7 @@
        font_sample="AaBbCcIiPpQq12369$€¢?.;/()"
        show_sample_in_list="1"
        use_svg2="1"
-       style="line-height:1.25;font-family:'Nimbus Roman No9 L';font-size:40px;-inkscape-font-specification:'Nimbus Roman No9 L'"
+       style="line-height:1.25;font-family:'Nimbus Roman No9 L';font-size:10.66666667px;-inkscape-font-specification:'Nimbus Roman No9 L'"
        selcue="1" />
     <eventcontext
        id="nodes"
@@ -340,8 +342,8 @@
        live_outline="1"
        live_objects="1"
        show_helperpath="0"
-       x="381.732"
-       y="87.5"
+       x="149.286"
+       y="229.643"
        edit_clipping_paths="0"
        edit_masks="0" />
     <eventcontext
@@ -400,6 +402,18 @@
        id="paintbucket"
        style="fill:#a0a0a0;stroke:none;"
        usecurrent="1" />
+    <group
+       id="measure"
+       fontsize="10">
+      <group
+         id="measure-start"
+         x="21.4468"
+         y="328.521" />
+      <group
+         id="measure-end"
+         x="41.9024"
+         y="308.065" />
+    </group>
   </group>
   <group
      id="palette">
@@ -520,7 +534,7 @@
   </group>
   <group
      id="colorselector"
-     page="0" />
+     page="4" />
   <group
      id="embedded">
     <group
@@ -537,7 +551,8 @@
     <group
        id="toolbox" />
     <group
-       id="fillstroke" />
+       id="fillstroke"
+       page="2" />
     <group
        id="filtereffects" />
     <group
@@ -598,7 +613,7 @@
        default="org.inkscape.output.pdf.cairorenderer"
        append_extension="1"
        enable_preview="1"
-       path="/home/th.nguyen/drift-encode/Figures" />
+       path="/mnt/gradient/MLC_PCM/New_Figures" />
     <group
        id="open"
        enable_preview="1"
@@ -606,7 +621,7 @@
     <group
        id="import"
        enable_preview="1"
-       path="/home/th.nguyen/drift-encode/Figures/"
+       path="/mnt/gradient/MLC_PCM/New_Figures/"
        ask="1"
        ask_svg="1"
        link="embed"
@@ -949,15 +964,18 @@
      id="extensions"
      org.inkscape.input.svg.scale="auto"
      org.inkscape.input.svg.svgdpi="300"
-     org.inkscape.output.pdf.cairorenderer.PDFversion="PDF-1.5" />
+     org.inkscape.output.pdf.cairorenderer.PDFversion="PDF-1.5"
+     org.inkscape.effects.edge3d.__live_effect__="0"
+     org.inkscape.effects.edge3d.angle="90"
+     org.inkscape.effects.edge3d.bw="0" />
   <group
      id="desktop"
-     style="font-size:10.66666667px;fill:#2c7bb6;stroke:#000000;stroke-width:1.33333334;stop-color:#000000">
+     style="font-size:40px;fill:#67cf90;stroke:#000000;stroke-width:2.51338583;stop-color:#000000">
     <group
-       width="1922"
-       height="1082"
-       x="1927"
-       y="30"
+       width="1398"
+       height="1084"
+       x="2132"
+       y="138"
        maximized="0"
        fullscreen="0"
        id="geometry" />
@@ -1070,4 +1088,7 @@
      defaultGtkTheme="Yaru"
      darkTheme="0"
      preferDarkTheme="0" />
+  <group
+     id="live_effects"
+     flattening="0" />
 </inkscape>
