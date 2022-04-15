@@ -1,4 +1,5 @@
 #!/bin/bash
+
 openf () {
 	# fdfind . ./ | fzf -m | sed 's!\/!\\!g' | xargs -d "\n" cmd.exe /C start "";
     files=$(fdfind . ./ | fzf -m | sed 's!\/!\\!g') 
@@ -7,4 +8,11 @@ openf () {
         echo $fname  | xargs -d "\n" cmd.exe /C start "";
     done <<< "$files"
 }
-openf
+
+if [ $# -lt 1 ]
+then
+    openf;
+else
+    cmd.exe /C start "" "$1";
+fi
+
