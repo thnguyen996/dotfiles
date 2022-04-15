@@ -12,4 +12,6 @@ Window-Maximized 1080x1920=true
 
 [Recent Files]
 File1[$e]=$HOME/tcad-dac/Tcad-dac21-extension-saf-tolerant/tcad_main.pdf
+File2[$e]=$HOME/bitsens-32b.pdf
 Name1[$e]=tcad_main.pdf
+Name2[$e]=bitsens-32b.pdf
