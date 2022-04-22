@@ -126,7 +126,7 @@ nnoremap <Leader>d oimport pdb; pdb.set_trace()<ESC>
 " fzf
 " Path completion
 imap <c-x><c-f> <plug>(fzf-complete-path)  
-
+nnoremap <c-p> :Files<CR>
 
 " vimwiki
 
