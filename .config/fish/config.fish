@@ -19,6 +19,8 @@ if status --is-interactive
     alias gp="git push origin master"
     alias cit="papers list --no-key --field title author | fzf | xargs -d '\n' papers list --fuzzy -t | clip.exe && powershell.exe Get-Clipboard "
     alias cia="papers list --no-key --field author | fzf | xargs -d '\n' papers list --fuzzy -a | clip.exe && powershell.exe Get-Clipboard" 
+    alias pr="pr -t -m"
+    alias trash="trash-put"
     if test -d /mnt/g/My\ Drive/
         alias drive="cd /mnt/g/My\ Drive/"
         alias paper="cd /mnt/g/My\ Drive/papers"
