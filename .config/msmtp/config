@@ -1,0 +1,12 @@
+account th.nguyen@g.skku.edu
+host smtp.gmail.com
+port 465
+from th.nguyen@g.skku.edu
+user th.nguyen@g.skku.edu
+passwordeval "pass th.nguyen@g.skku.edu"
+auth on
+tls on
+tls_trust_file	/etc/ssl/certs/ca-certificates.crt
+logfile /home/hoang/.config/msmtp/msmtp.log
+tls_starttls off
+
