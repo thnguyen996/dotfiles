@@ -1,0 +1,7 @@
+# vim: filetype=neomuttrc
+source /usr/local/share/mutt-wizard/mutt-wizard.muttrc
+source /home/hoang/.config/mutt/accounts/th.nguyen@g.skku.edu.muttrc
+macro index,pager i1 '<sync-mailbox><enter-command>source /home/hoang/.config/mutt/accounts/th.nguyen@g.skku.edu.muttrc<enter><change-folder>!<enter>;<check-stats>' "switch to th.nguyen@g.skku.edu"
+auto_view text/html
+alternative_order text/plain text/enriched text/html
+bind index "^r" imap-fetch-mail

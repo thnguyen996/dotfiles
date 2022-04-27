@@ -73,6 +73,7 @@ Plug 'rhysd/vim-grammarous'
 Plug 'rickhowe/diffchar.vim'
 Plug 'samoshkin/vim-mergetool'
 Plug 'tpope/vim-fugitive'
+Plug 'junegunn/goyo.vim'
 call plug#end()
 
 " Colorscheme
@@ -189,3 +190,20 @@ let g:MergetoolSetLayoutCallback = function('s:on_mergetool_set_layout')
 
 " fugitive
 nnoremap <Leader>s :G<CR>
+
+" goyo
+
+let g:goyo_width=120
+let g:goyo_height=120
+
+function! s:goyo_enter()
+    let g:qs_enable=0
+endfunction
+
+function! s:goyo_leave()
+    let g:qs_enable=1
+endfunction
+
+autocmd! User GoyoEnter call <SID>goyo_enter()
+autocmd! User GoyoLeave call <SID>goyo_leave()
+
