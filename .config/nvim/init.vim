@@ -69,10 +69,10 @@ Plug 'vimwiki/vimwiki'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'lervag/vimtex'
 Plug 'sirver/ultisnips'
-Plug 'rhysd/vim-grammarous'
 Plug 'rickhowe/diffchar.vim'
 Plug 'samoshkin/vim-mergetool'
 Plug 'tpope/vim-fugitive'
+Plug 'ron89/thesaurus_query.vim'
 call plug#end()
 
 " Colorscheme
@@ -134,11 +134,9 @@ let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}
 
 " vimtex
 let g:tex_flavor = 'latex'
-" let g:vimtex_view_method = 'zathura'
 let g:vimtex_view_general_viewer = 'okular'
 let g:vimtex_view_general_options = '--unique file:@pdf\#src:@line@tex'
 let g:latex_viewer = 'zathura'
-autocmd BufNewFile,BufRead *.tex set wrap linebreak nolist nofoldenable
 let g:UltiSnipsExpandTrigger = '<C-j>'
 let g:UltiSnipsJumpForwardTrigger = '<C-j>'
 let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
@@ -146,6 +144,7 @@ let g:vimtex_quickfix_mode = 0
 let g:UltiSnipsSnippetDirectories=[$HOME.'/.config/snippets']
 set thesaurus+=$HOME/.config/thesaurus/thesaurii.txt
 let g:qs_max_chars=10000
+autocmd BufNewFile,BufRead *.tex set wrap linebreak nolist nofoldenable
 
 augroup vimtex_customization
 autocmd!
