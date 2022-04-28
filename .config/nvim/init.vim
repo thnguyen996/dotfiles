@@ -72,7 +72,7 @@ Plug 'sirver/ultisnips'
 Plug 'rickhowe/diffchar.vim'
 Plug 'samoshkin/vim-mergetool'
 Plug 'tpope/vim-fugitive'
-Plug 'ron89/thesaurus_query.vim'
+Plug 'junegunn/goyo.vim'
 call plug#end()
 
 " Colorscheme
@@ -126,7 +126,7 @@ nnoremap <Leader>d oimport pdb; pdb.set_trace()<ESC>
 " fzf
 " Path completion
 imap <c-x><c-f> <plug>(fzf-complete-path)  
-
+nnoremap <c-p> :Files<CR>
 
 " vimwiki
 
@@ -188,3 +188,20 @@ let g:MergetoolSetLayoutCallback = function('s:on_mergetool_set_layout')
 
 " fugitive
 nnoremap <Leader>s :G<CR>
+
+" goyo
+
+let g:goyo_width=120
+let g:goyo_height=120
+
+function! s:goyo_enter()
+    let g:qs_enable=0
+endfunction
+
+function! s:goyo_leave()
+    let g:qs_enable=1
+endfunction
+
+autocmd! User GoyoEnter call <SID>goyo_enter()
+autocmd! User GoyoLeave call <SID>goyo_leave()
+
