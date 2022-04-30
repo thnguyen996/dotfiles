@@ -35,6 +35,7 @@ if status --is-interactive
     set PATH $HOME/.local/bin $PATH
     set -x SHELL /bin/bash
     bind -M insert \cf accept-autosuggestion
+    set TERM screen-256color
 
     if test -d $HOME/.linuxbrew
         set AUTOJUMP_PATH $HOME/.linuxbrew/share/autojump/autojump.fish \
