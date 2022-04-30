@@ -1,5 +1,6 @@
 package autojump
 package colorman
+package fzf
 theme agnoster
 theme batman
 theme default
