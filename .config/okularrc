@@ -3,32 +3,14 @@ FullScreen=false
 
 [MainWindow]
 Height 1080=1015
-Height 1934=1390
+Height 1934=1389
 MenuBar=Disabled
 State=AAAA/wAAAAD9AAAAAAAABFMAAAVtAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAWAG0AYQBpAG4AVABvAG8AbABCAGEAcgAAAAAA/////wAAAAAAAAAA
 ToolBarsMovable=Disabled
 Width 1920=1908
-Width 4640=1023
+Width 4640=2051
 Window-Maximized 1080x1920=true
 
 [Recent Files]
-File1[$e]=/mnt/g/My Drive/papers/notes/test_note.md
-File10[$e]=file:///mnt/d/writtings/Tcad-dac21-extension-saf-tolerant/tcad_main.pdf
-File2[$e]=/mnt/g/My Drive/Research/Tcad-dac21-extension-saf-tolerant/ieee_brief.pdf
-File3[$e]=/mnt/d/writtings/Tcad-dac21-extension-saf-tolerant/tcad_main.pdf
-File4[$e]=/mnt/d/writtings/ICCAD2022/main.pdf
-File5[$e]=/mnt/g/My Drive/PhD thesis/imran-thesis.pdf
-File6[$e]=/mnt/d/writtings/predefense-thesis/hoang-thesis.pdf
-File7[$e]=$HOME/.cache/mutt-wizard/files/Hoang-insurrance.pdf
-File8[$e]=$HOME/.cache/mutt-wizard/files/20220420_112612_693088960.png
-File9[$e]=$HOME/.cache/mutt-wizard/files/20220420_112643_656869824.png
-Name1[$e]=test_note.md
-Name10[$e]=tcad_main.pdf
-Name2[$e]=ieee_brief.pdf
-Name3[$e]=tcad_main.pdf
-Name4[$e]=main.pdf
-Name5[$e]=imran-thesis.pdf
-Name6[$e]=hoang-thesis.pdf
-Name7[$e]=Hoang-insurrance.pdf
-Name8[$e]=20220420_112612_693088960.png
-Name9[$e]=20220420_112643_656869824.png
+File1[$e]=$HOME/drift-encode/Figures/resnet18-cifar10-result-fixed-point.pdf
+Name1[$e]=resnet18-cifar10-result-fixed-point.pdf
