@@ -1,5 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =3
+let g:netrw_dirhistcnt =4
+let g:netrw_dirhist_4='/home/hoang/.config/nvim'
 let g:netrw_dirhist_3='/mnt/d/writtings/Tcad-dac21-extension-saf-tolerant'
 let g:netrw_dirhist_2='/home/hoang/tcad-dac/Tcad-dac21-extension-saf-tolerant'
 let g:netrw_dirhist_1='/home/hoang'

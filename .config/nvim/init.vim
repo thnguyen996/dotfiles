@@ -160,6 +160,12 @@ let g:custom_toc1 = vimtex#toc#new({
 nnoremap <silent> <C-n> :call g:custom_toc1.open()<cr>
 endfunction
 
+let g:vimtex_toc_hotkeys = {
+    \ 'enabled' : 1,
+    \ 'keys' : 'asdf',
+    \ 'leader' : ';',
+    \}
+
 " completor vim
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
@@ -191,8 +197,8 @@ nnoremap <Leader>s :G<CR>
 
 " goyo
 
-let g:goyo_width=120
-let g:goyo_height=120
+let g:goyo_width=100
+let g:goyo_height=150
 
 function! s:goyo_enter()
     let g:qs_enable=0
