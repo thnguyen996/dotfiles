@@ -2,3 +2,4 @@
 .config/okular*
 .config/inkscape/
 .vim/
+.config/kdeglobals
