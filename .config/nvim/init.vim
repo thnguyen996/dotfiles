@@ -171,18 +171,15 @@ let g:custom_toc1 = vimtex#toc#new({
     \ 'layers' : ['todo', 'content'],
     \ 'show_help' : 0,
     \ 'mode' : 0,
+    \ 'hotkeys_enabled' : 1,
+    \ 'hotkeys_leader' : ";",
     \})
+
 nnoremap <silent> <C-n> :call g:custom_toc1.open()<cr>
 endfunction
 set conceallevel=2
 let g:tex_conceal="abdgm"
 let g:tex_conceal_frac=1
-
-let g:vimtex_toc_hotkeys = {
-    \ 'enabled' : 1,
-    \ 'keys' : 'asdf',
-    \ 'leader' : ';',
-    \}
 
 " completor vim
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"

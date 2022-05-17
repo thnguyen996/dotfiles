@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =8
+let g:netrw_dirhist_8='/mnt/d/writtings/presentations/MLC_PCM_Fault_tolerance_04_22'
+let g:netrw_dirhist_7='/mnt/c/Users/DATES-TH.Nguyen/AppData/Roaming'
+let g:netrw_dirhist_6='/mnt/c/Users/DATES-TH.Nguyen/AppData'
+let g:netrw_dirhist_5='/mnt/c/Users/DATES-TH.Nguyen'
+let g:netrw_dirhist_4='/mnt/d/writtings/Tcad-dac21-extension-saf-tolerant/figures'
+let g:netrw_dirhistcnt =4
+let g:netrw_dirhist_4='/home/hoang/.config/nvim'
+let g:netrw_dirhist_3='/mnt/d/writtings/Tcad-dac21-extension-saf-tolerant'
+let g:netrw_dirhist_2='/home/hoang/tcad-dac/Tcad-dac21-extension-saf-tolerant'
+let g:netrw_dirhist_1='/home/hoang'
