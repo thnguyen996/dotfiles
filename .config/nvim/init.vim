@@ -70,7 +70,6 @@ Plug 'vimwiki/vimwiki'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'lervag/vimtex', {'tag': 'v1.6'}
 Plug 'sirver/ultisnips'
-Plug 'rhysd/vim-grammarous'
 Plug 'rickhowe/diffchar.vim'
 Plug 'samoshkin/vim-mergetool'
 Plug 'tpope/vim-fugitive'
@@ -138,21 +137,20 @@ let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}
 
 " vimtex
 let g:tex_flavor = 'latex'
-let g:vimtex_compiler_latexmk_engines = {
-    \ '_'                : '-pdflatex',
-    \ 'pdflatex'         : '-pdf',
-    \ 'dvipdfex'         : '-pdfdvi',
-    \ 'lualatex'         : '-lualatex',
-    \ 'xelatex'          : '-xelatex',
-    \ 'context (pdftex)' : '-pdf -pdflatex=texexec',
-    \ 'context (luatex)' : '-pdf -pdflatex=context',
-    \ 'context (xetex)'  : '-pdf -pdflatex=''texexec --xtx''',
-    \}
-" let g:vimtex_view_method = 'zathura'
+" let g:vimtex_compiler_latexmk_engines = {
+"     \ '_'                : '-pdflatex',
+"     \ 'pdflatex'         : '-pdf',
+"     \ 'dvipdfex'         : '-pdfdvi',
+"     \ 'lualatex'         : '-lualatex',
+"     \ 'xelatex'          : '-xelatex',
+"     \ 'context (pdftex)' : '-pdf -pdflatex=texexec',
+"     \ 'context (luatex)' : '-pdf -pdflatex=context',
+"     \ 'context (xetex)'  : '-pdf -pdflatex=''texexec --xtx''',
+"     \}
+
 let g:vimtex_view_general_viewer = 'okular'
 let g:vimtex_view_general_options = '--unique file:@pdf\#src:@line@tex'
 let g:latex_viewer = 'zathura'
-autocmd BufNewFile,BufRead *.tex set wrap linebreak nolist nofoldenable
 let g:UltiSnipsExpandTrigger = '<C-j>'
 let g:UltiSnipsJumpForwardTrigger = '<C-j>'
 let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
@@ -160,6 +158,7 @@ let g:vimtex_quickfix_mode = 0
 let g:UltiSnipsSnippetDirectories=[$HOME.'/.config/snippets']
 set thesaurus+=$HOME/.config/thesaurus/thesaurii.txt
 let g:qs_max_chars=10000
+autocmd BufNewFile,BufRead *.tex set wrap linebreak nolist nofoldenable
 
 
 augroup vimtex_customization
@@ -178,6 +177,12 @@ endfunction
 set conceallevel=2
 let g:tex_conceal="abdgm"
 let g:tex_conceal_frac=1
+
+let g:vimtex_toc_hotkeys = {
+    \ 'enabled' : 1,
+    \ 'keys' : 'asdf',
+    \ 'leader' : ';',
+    \}
 
 " completor vim
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
@@ -212,8 +217,8 @@ nnoremap <Leader>s :G<CR>
 
 " goyo
 
-let g:goyo_width=120
-let g:goyo_height=120
+let g:goyo_width=100
+let g:goyo_height=150
 
 function! s:goyo_enter()
     let g:qs_enable=0
