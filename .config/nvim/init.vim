@@ -76,6 +76,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'junegunn/goyo.vim'
 Plug 'KeitaNakamura/tex-conceal.vim', {'for': 'tex'} 
 Plug 'edluffy/specs.nvim'
+Plug 'ackyshake/VimCompletesMe'
 call plug#end()
 
 " Colorscheme
@@ -166,6 +167,12 @@ autocmd!
 autocmd FileType tex call CreateTocs()
 augroup END
 
+augroup VimCompletesMeTex
+autocmd!
+autocmd FileType tex
+    \ let b:vcm_omni_pattern = g:vimtex#re#neocomplete
+augroup END
+
 function CreateTocs()
 let g:custom_toc1 = vimtex#toc#new({
     \ 'layers' : ['todo', 'content'],
@@ -186,16 +193,16 @@ inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
 let g:completor_complete_options = 'menuone,noselect,preview'
-let g:completor_tex_omni_trigger = g:vimtex#re#deoplete
+" let g:completor_tex_omni_trigger = g:vimtex#re#deoplete
 
-let g:completor_tex_omni_trigger =
-        \   '\\(?:'
-        \  .   '\w*cite\w*(?:\s*\[[^]]*\]){0,2}\s*{[^}]*'
-        \  .  '|\w*ref(?:\s*\{[^}]*|range\s*\{[^,}]*(?:}{)?)'
-        \  .  '|hyperref\s*\[[^]]*'
-        \  .  '|includegraphics\*?(?:\s*\[[^]]*\]){0,2}\s*\{[^}]*'
-        \  .  '|(?:include(?:only)?|input)\s*\{[^}]*'
-        \  .')'
+" let g:completor_tex_omni_trigger =
+"         \   '\\(?:'
+"         \  .   '\w*cite\w*(?:\s*\[[^]]*\]){0,2}\s*{[^}]*'
+"         \  .  '|\w*ref(?:\s*\{[^}]*|range\s*\{[^,}]*(?:}{)?)'
+"         \  .  '|hyperref\s*\[[^]]*'
+"         \  .  '|includegraphics\*?(?:\s*\[[^]]*\]){0,2}\s*\{[^}]*'
+"         \  .  '|(?:include(?:only)?|input)\s*\{[^}]*'
+"         \  .')'
 
 " Merge tool
 let g:mergetool_layout = 'mr'
@@ -214,7 +221,7 @@ nnoremap <Leader>s :G<CR>
 
 " goyo
 
-let g:goyo_width=100
+let g:goyo_width=150
 let g:goyo_height=150
 
 function! s:goyo_enter()
